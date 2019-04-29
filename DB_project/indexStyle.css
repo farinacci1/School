@@ -1,0 +1,73 @@
+body{
+
+    height: 100%;
+	min-height: 600px;
+	min-width: 800px;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f5;
+	display: table;
+}
+.content_header, .content_body,.content_footer{
+	display: table-row;
+}
+.content_header{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 30px;
+	background-color: inherit;
+}
+.content_body {
+	position: fixed;
+	height: 100%;
+	width:100%;
+	top:30px;
+	bottom:30px;
+	min-height:540px;
+	background-color: inherit;
+}
+.content_footer{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 30px;
+	background-color: inherit;
+}
+
+.leftInnerContainer{
+	position: fixed;
+	height: 100%;
+	width:40%;
+	margin-left:20px;
+	background-color:  #2f2f2f;
+}
+.rightInnerContainer{
+	position: fixed;
+	height: 100%;
+	left: 40%;
+	width:calc(60% - 20px);
+	margin-right:20px;
+	
+	background: url(healthcareHomePage.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.leftInnerContainerTop{
+	position: absolute;
+	height:100px;
+	width:100%;
+	border-bottom-style:solid;
+	border-bottom-color: #C0C0C0;	
+	border-bottom-width:1px;
+	background: url(ALLIFRONT_LOGO.png);
+	background-position: center center;
+	background-size: 200px 50px;
+	background-repeat: no-repeat;
+	background-color:red;
+}
+
