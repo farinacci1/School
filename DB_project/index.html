@@ -12,44 +12,40 @@
   <meta name="author" content="Jorge Farinacci">
   <meta name="author" content="Andrew Min">
   <meta name="author" content="Phillip Thamm">
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <!-- jQuery library -->
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="indexStyle.css">
   
 </head>
 
 <body>
-	<div class="content_header"/>
+  <div class="content_header"/>
   <div class="content_body">
-	<span class="leftInnerContainer">
-		<div class="leftInnerContainerTop">
-		</div>
-		<div class="leftInnerContainerWhole">
-			<div class="describer">
-				<div class="describer_msg">
-					Register Hospital
+	<div class="container-fluid">
+		<div class="row">
+			<div class="content_body_left">
+				<div class="content_body_left_header"/>
+				<div class="content_body_left_body">
+					<div class="logForm">
+						<form>
+							<input type="text" max_length = "100"  placeholder="username" name="Username" id="uField" required>
+							<input type="password" max_length = "100"  placeholder="Password" name ="Password" id="pField" required>
+							<button type="submit" id="logInButton">Login</button></div>
+						</form>
+					</div>
 				</div>
-			</div>
-			<div class="registrationForm">
-				<form>
-					<input type="text" name="Hospital name" value="">
-					<select name="country">
-						<option value=""></option>
-					</select>
-					<select name="region">
-						 <option value=""></option>
-					</select>
-				</form>
+				<div class="content_body_left_footer">
+					&copy; 2019 - CS Meds
+				</div>
+				
 			</div>
 		</div>
-		
-	</span>
-	<span class="rightInnerContainer"/>
+	</div>
   </div>
   <div class="content_footer"/>
+
 </body>
 </html>

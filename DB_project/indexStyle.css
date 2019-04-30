@@ -1,12 +1,9 @@
 body{
 
     height: 100%;
-	min-height: 600px;
-	min-width: 800px;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f5;
 	display: table;
+	background-color: #f0f0f5;
+	
 }
 .content_header, .content_body,.content_footer{
 	display: table-row;
@@ -15,56 +12,37 @@ body{
 	position: fixed;
 	top: 0px;
 	width: 100%;
-	height: 30px;
+	min-height: 30px;
+	max-height:30px;
 	background-color: inherit;
 }
 .content_body {
 	position: fixed;
-	height: 100%;
 	width:100%;
 	top:30px;
-	bottom:30px;
-	min-height:540px;
-	background-color: inherit;
+	height:100%;
+	background-color: white;
 }
 .content_footer{
 	position: fixed;
-	bottom: 0px;
 	width: 100%;
-	height: 30px;
+	min-height: 30px;
+	max-height:30px;
+	bottom:0px;
 	background-color: inherit;
 }
-
-.leftInnerContainer{
-	display: table;
-	position: fixed;
-	height: 100%;
+.content_body_left{
+	position:fixed;
+	top:50px;
+	bottom:50px;
 	width:40%;
 	margin-left:20px;
-	background-color:  #2f2f2f;
 }
-.rightInnerContainer{
-	position: fixed;
-	height: 100%;
-	left: 40%;
-	width:calc(60% - 20px);
-	margin-right:20px;
-	
-	background: url(healthcareHomePage.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-.leftInnerContainerTop, .leftInnerContainerWhole{
-	display: table-row;
-}
-.leftInnerContainerTop{
-	position: absolute;
+
+.content_body_left_header{
+	position:fixed;
 	height:100px;
-	width:100%;
+	width:40%;
 	border-bottom-style:solid;
 	border-bottom-color: #C0C0C0;	
 	border-bottom-width:1px;
@@ -73,34 +51,42 @@ body{
 	background-size: 200px 50px;
 	background-repeat: no-repeat;
 	background-color:red;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;  
 }
-.leftInnerContainerWhole{
-	display: table;
-	position: absolute;
-	top:100px;
-	height: 100%;
-	width:100%;
-	background-color: inherit;
+.content_body_left_body{
+	position:fixed;
+	width:40%;
+	top:150px;
+	height:calc(100% - 230px);
+	background-color: #2f2f2f;
 }
-.describer, .registrationForm{
-	display: table-row;
+.content_body_left_footer{
+	position: fixed;
+	width: 40%;
+	min-height: 30px;
+	max-height:30px;
+	bottom:50px;
+	background-color: #2f2f2f;
+	color: white;
+	text-align: center;
 }
-.describer{
-	position: absolute;
-	height:50px;
-	width: 100%;
-	
-}
-.describer_msg{
+.logForm{
 	position:absolute;
-	bottom:0;
-	width:100%;
-	text-align:center;
-	font-size:30px;
-	color:white;
+	margin: 0 auto;
+	width: 80%;	
+	height:90%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: transparent;
+	border: 1px solid #C0C0C0;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;  
 }
-.registrationForm{
-	position:absolute;
-	top:50px;
-	height: 100%;
-}
+
+
+
+
