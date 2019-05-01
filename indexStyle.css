@@ -63,6 +63,76 @@ body{
   
 }
 #createHospital:focus {outline:0;}
+#HospitalModal {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  position: absolute;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content{
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	padding-top: 0px;
+	border: 1px solid #888;
+	width: 300px;
+	height:400px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+#ModalHeader{
+	width:100%;
+	height:40px;
+	border-bottom-style:solid;
+	border-bottom-color: #C0C0C0;	
+	border-bottom-width:1px;
+}
+#ModalTitle{
+	color: #aaaaaa;
+	float: left;
+	font-size: 28px;
+	font-weight: bold;
+}
+#Modalclose {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#Modalclose:hover,
+#Modalclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.HospitalNameEntryBox,.RootAdminNameEntryBox,.RootAdminUserNameEntryBox,.RootAdminUserPassWordEntryBox, .RegisterLoginBtnBox{
+	position: relative;
+	direction:ltr;
+	width:100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: -ms-flexbox; /* IE10 */
+    display: flex;
+}
+#RegisterlogInButton{
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: white;
+	font-size: 14px;
+	text-align: center;
+	background: black;
+
+}
 .content_body_left{
 	position:fixed;
 	top:50px;
@@ -122,14 +192,13 @@ body{
 	color:white;
 	min-width: 100%;
 	font-family: 'Nanum Myeongjo', serif;
-	font-size: 60px;
+	font-size: 55px;
 	text-align: center;
 }
 .appDescriber{
 	font-family: 'Nanum Myeongjo', serif;
-	 text-decoration: underline;
+	text-decoration: underline;
 	color:white;
-	
 	font-size: 30px;
 	text-align: center;
 }
