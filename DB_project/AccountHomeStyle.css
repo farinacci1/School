@@ -1,0 +1,60 @@
+body{
+	height:100%;
+	width:100%;
+	display: table;
+	background-color: #f0f0f5;
+	min-width:800px;
+	overflow-x: auto;
+}
+.content_header, .content_body,.content_footer{
+	display: table-row;
+}
+.content_header{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	min-height: 30px;
+	max-height:30px;
+	background-color: inherit;
+	border-bottom-style:solid;
+	border-bottom-color: #C0C0C0;	
+	border-bottom-width:1px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.content_body {
+	position: fixed;
+	width:100%;
+	top:30px;
+	height:100%;
+	background-color: white;
+	
+}
+.content_footer{
+	position: fixed;
+	width: 100%;
+	min-height: 30px;
+	max-height:30px;
+	bottom:0px;
+	background-color: #f0f0f5;
+	border-top-style:solid;
+	border-top-color: #C0C0C0;	
+	border-top-width:1px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+#verticalNavBar{
+	position:absolute;
+	width:250px;
+	height: calc(100% - 60px);
+	z-index:1;
+	background-color: #f0f0f5;
+	border-right-style:solid;
+	border-right-color: #C0C0C0;	
+	border-right-width:1px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
