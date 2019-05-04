@@ -1,5 +1,5 @@
 # DB_systems_project
-CS3743::FINAL::DATABASE PROJECT-ALLIFRONT_SURGICAL DATABASE
+CS3743::FINAL::DATABASE PROJECT - ALLIFRONT_SURGICAL
 
 # Hospital database system - VERSION 1.001
 - Support multiple users login
