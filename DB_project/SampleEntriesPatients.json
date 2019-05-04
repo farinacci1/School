@@ -1,0 +1,52 @@
+{
+	"Patients":[
+		{
+			"PID":"60000",
+			"PSSN":"",
+			"PName":"Tony Stark",
+			"Username":"DisIronSuit",
+			"Password":"2Cool4You",
+			"DOB":"1970-05-29",
+			"LastLogIn":"",
+			"isPatient":"1",
+			"Active":"1",
+			"Medical Record":{"HeightCM":"185","WeightKG":"102","Age":"49","BloodType":"UNK"}
+		},
+		{
+			"PID":"60001",
+			"PSSN":"",
+			"PName":"Bruce Banner",
+			"Username":"hulkSmash",
+			"Password":"punyHuman",
+			"DOB":"1969-12-18",
+			"LastLogIn":"",
+			"isPatient":"1",
+			"Active":"1",
+			"Medical Record":{"HeightCM":"152","WeightKG":"58","Age":"50","BloodType":"UNK"}
+		},
+		{
+			"PID":"60002",
+			"PSSN":"",
+			"PName":"Loki Laufeyson",
+			"Username":"ItsMELOKI",
+			"Password":"LokiDoki",
+			"DOB":"965-01-01",
+			"LastLogIn":"",
+			"isPatient":"1",
+			"Active":"1",
+			"Medical Record":{"HeightCM":"193","WeightKG":"79","Age":"1054","BloodType":"UNK"}
+		},
+		{
+			"PID":"60003",
+			"PSSN":"",
+			"PName":"Peter Quill",
+			"Username":"StarLord",
+			"Password":"WhysGamora",
+			"DOB":"1962-02-04",
+			"LastLogIn":"",
+			"isPatient":"1",
+			"Active":"1",
+			"Medical Record":{"HeightCM":"187","WeightKG":"238","Age":"57","BloodType":"UNK"}
+		}
+	]
+}

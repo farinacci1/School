@@ -10,6 +10,7 @@ if ($conn->connect_error) {
 } 
 
 session_start();
+$_SESSION['selectednavBarOption'] ="";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$Username =  mysqli_real_escape_string($conn ,$_POST['Username']); 
 	$Pass =  mysqli_real_escape_string($conn ,$_POST['Password']);

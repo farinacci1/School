@@ -29,8 +29,8 @@ else{
 				Password,
 				LastLogIn,
 				isRootAdmin,
-				isDatabaseAdmin,
-				isEmployee
+				isAdmin,
+				Active
 			)
 	VALUES (
 	01,

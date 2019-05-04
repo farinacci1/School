@@ -1,0 +1,42 @@
+{
+
+	"Doctors":[
+		{
+			"DID":"10000",
+			"DSSN": "",
+			"Dname":"Nicholas Fury",
+			"Username":"FeelTheFury",
+			"Password":"MySuperSuit",
+			"numRatings":"10",
+			"sumRatings":"20",
+			"LastLogIn":"",
+			"Active":"1",
+			"SurgeryType": ["Hemorrhoidectomy","Inguinal hernia repair","Cataract"]
+		},
+		{
+			"DID":"10001",
+			"DSSN": "",
+			"Dname":"Thor",
+			"Username":"DrLighting",
+			"Password":"ForAsgard",
+			"numRatings":"10",
+			"sumRatings":"48",
+			"LastLogIn":"",
+			"Active":"1",
+			"SurgeryType": ["Appendectomy","Lower back surgery"]
+		},
+		{
+			"DID":"10002",
+			"DSSN": "",
+			"Dname":"Steve Rogers",
+			"Username":"StevieWonder",
+			"Password":"FreedomFries",
+			"numRatings":"7",
+			"sumRatings":"29",
+			"LastLogIn":"",
+			"Active":"1",
+			"SurgeryType": ["Biopsy","Craniotomy"]
+		}		
+	]
+	
+}

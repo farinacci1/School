@@ -1,0 +1,18 @@
+{
+	"Schedule":[
+		{
+			"SDID":"10002",
+			"ShiftDate":"2019-03-21",
+			"ShiftStartTime":"05:20:00.000",
+			"ShiftEndTime":"09:30:00.000"
+		},
+		{
+			"SDID":"10001",
+			"ShiftDate":"2019-05-21",
+			"ShiftStartTime":"06:30:00.000",
+			"ShiftEndTime":"16:30:00.000"
+		}
+	]
+
+
+}

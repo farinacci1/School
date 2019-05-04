@@ -25,35 +25,38 @@ else{
 			LastLogIn DATETIME,
 			isRootAdmin BOOLEAN,
 			isAdmin BOOLEAN,
-			isEmployee BOOLEAN
+			Active BOOLEAN,
+			CHECK(AID BETWEEN 0 AND 9999)
 	    )";
 		if(!mysqli_query($conn, $AdminsTable)){
 			 echo ("<script>console.log( 'Error creating Table Admins: " . $conn->error . "' );</script>");
 		}
 		$DoctorsTable = "CREATE TABLE IF NOT EXISTS Doctors(
 			DID INT PRIMARY KEY NOT NULL UNIQUE,
-			DSSN INT NOT NULL UNIQUE,
+			DSSN INT UNIQUE,
 			Dname VARCHAR(38) NOT NULL,
 			Username VARCHAR(26) NOT NULL UNIQUE,
 			Password VARCHAR(255) NOT NULL,
 			numRatings INT,
 			sumRatings INT,
 			LastLogIn DATETIME,
-			isEmployee BOOLEAN
+			Active BOOLEAN,
+			CHECK(DID BETWEEN 10000 AND 59999)
 		)";
 		if(!mysqli_query($conn, $DoctorsTable)){
 			 echo ("<script>console.log( 'Error creating Table Doctors: " . $conn->error . "' );</script>");
 		}
 		$PatientsTable = "CREATE TABLE IF NOT EXISTS Patients(
 			PID INT PRIMARY KEY NOT NULL UNIQUE,
-			PSSN INT NOT NULL UNIQUE,
+			PSSN INT UNIQUE,
 			PName VARCHAR(38) NOT NULL,
 			Username VARCHAR(26) NOT NULL UNIQUE,
 			Password VARCHAR(255) NOT NULL,
 			DOB DATE NOT NULL,
 			LastLogIn DATETIME,
-			Role VARCHAR(10),
-			isPatient BOOLEAN
+			isPatient BOOLEAN,
+			Active BOOLEAN,
+			CHECK(PID > 60000)
 		)";
 		if(!mysqli_query($conn, $PatientsTable)){
 			 echo ("<script>console.log( 'Error creating Table Patients: " . $conn->error . "' );</script>");
@@ -67,7 +70,7 @@ else{
 			AppStartTime TIME NOT NULL,
 			AppEndTime TIME NOT NULL,
 			AppReason VARCHAR(128) NOT NULL,
-			AppStats VARCHAR(20) NOT NULL,
+			AppStatus VARCHAR(20) NOT NULL,
 			CHECK(AppStatus in ('pending','booked','canceled','kept','late','missed')),
 			FOREIGN KEY(APID) REFERENCES Patients(PID),
 			FOREIGN KEY(ADID) REFERENCES Doctors(DID)
@@ -125,18 +128,19 @@ else{
 
 		$HospitalTools = "CREATE TABLE IF NOT EXISTS Tools(
 			ToolName VARCHAR(32) NOT NULL,
-			ToolId INT NOT NULL UNIQUE
+			ToolId INT NOT NULL UNIQUE,
+			Quantity INT NOT NULL
 		)";
 		if(!mysqli_query($conn, $HospitalTools)){
 			echo ("<script>console.log( 'Error creating Table Tools: " . $conn->error . "' );</script>");
 		}
 
 		$ToolsInUse = "CREATE TABLE IF NOT EXISTS ToolsInUse(
-			surgeryId INT NOT NULL,
+			TDID INT NOT NULL,
 			ToolId int,
 			ToolStatus VARCHAR(15) NOT NULL,
 			CHECK(ToolStatus IN ('checked out','checked in', 'discarded')),
-			FOREIGN KEY (surgeryId) REFERENCES Surgeries(SID),
+			FOREIGN KEY (TDID) REFERENCES Doctors(DID),
 			FOREIGN KEY (ToolId) REFERENCES Tools(ToolId)
 		)";
 		if(!mysqli_query($conn, $ToolsInUse)){

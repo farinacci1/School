@@ -1,0 +1,37 @@
+{
+	"Admins":[
+		{
+			"AID":"02",
+			"ASSN":"",
+			"AName":"Natasha Romanova",
+			"Username":"BlackWidow",
+			"Password":"SpiderSpy",
+			"LastLogIn":"",
+			"isRootAdmin":"0",
+			"isAdmin":"1",
+			"Active":"1"
+		},
+		{
+			"AID":"03",
+			"ASSN":"",
+			"AName":"Clint Barton",
+			"Username":"Hawkeye",
+			"Password":"BestMarksman",
+			"LastLogIn":"",
+			"isRootAdmin":"0",
+			"isAdmin":"1",
+			"Active":"1"
+		},
+		{
+			"AID":"04",
+			"ASSN":"",
+			"AName":"Thanos",
+			"Username":"InfinityStone",
+			"Password":"overpopulation",
+			"LastLogIn":"",
+			"isRootAdmin":"0",
+			"isAdmin":"1",
+			"Active":"1"
+		}		
+	]
+}

@@ -21,8 +21,6 @@ if ($conn->select_db("Hospital") === FALSE) {
 	}
 	
 }
-else {
-	echo("<script>console.log('Hospital Database already exists');</script>");
-}
+
 $conn->close();
 ?>
