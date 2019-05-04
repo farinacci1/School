@@ -1,7 +1,7 @@
 # DB_systems_project
 CS3743::DATABASE PROJECT-ALLIFRONT_SURGICAL DATABASE
 
-#Hospital database system - VERSION 1.001
+# Hospital database system - VERSION 1.001
 - Support multiple users login
 
   -Doctors
