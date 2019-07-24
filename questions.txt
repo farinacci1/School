@@ -1,1 +1,5 @@
 
+   1) What is a try/catch block and why do we need one?
+   2) What is an exception?
+   3) How do we get the name of an enumeration value?
+   4) What is short-circuit evaluation?
