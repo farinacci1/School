@@ -1,5 +1,14 @@
 
-   1) What is a try/catch block and why do we need one?
-   2) What is an exception?
-   3) How do we get the name of an enumeration value?
-   4) What is short-circuit evaluation?
+ 1) What is a try/catch block and why do we need one?
+      A try catch block is used to attempt something that is not guaranteed to work, catching the resulting exceptions.
+      For instance trying to read a file, if file does not offer read permission you'll undoubtedly recieve an error, and we want to be able to handle that exception and proceed.
+  
+  
+2) What is an exception?
+   An exception can essentialy be viewed as known type of error within our program. Some common types across various languages include out-of-bounds,andfile not found.
+   
+ 
+3) How do we get the name of an enumeration value?
+
+
+4) What is short-circuit evaluation?
