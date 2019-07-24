@@ -9,6 +9,11 @@
  
 3) How do we get the name of an enumeration value?
  I'll answer this java specifically since approach may be diffrent in other languages.
- 
+ ($enum_value).name()
+ where $enum_value denotes the value of item in enumeration table whose name we wish to retireve.
 
 4) What is short-circuit evaluation?
+ Checking next argument in sequence if arguments checked thus far do not suffice.
+ For instance:
+  if, else if,else
+  if(X AND Y AND REST..)
