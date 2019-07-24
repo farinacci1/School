@@ -1,7 +1,6 @@
 
  1) What is a try/catch block and why do we need one?
-      A try catch block is used to attempt something that is not guaranteed to work, catching the resulting exceptions.
-      For instance trying to read a file, if file does not offer read permission you'll undoubtedly recieve an error, and we want to be able to handle that exception and proceed.
+  A try catch block is used to attempt something that is not guaranteed to work, catching the resulting exceptions. For instance trying to read a file, if file does not offer read permission you'll undoubtedly recieve an error, and we want to be able to handle that exception and proceed.
   
   
 2) What is an exception?
