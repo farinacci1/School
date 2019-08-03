@@ -28,8 +28,8 @@ public class WorkoutsPanel extends JTabbedPane {
 
     private static final long serialVersionUID = 7815971630539125935L; // What is serialization?
     private final Workouts workouts;
-    private Workouts.Muscle muscle;
-    private Workouts.Equipment equipment;
+    private Config.Muscle muscle;
+    private Config.Equipment equipment;
     private int workoutIndex;
     private int selectedName;
     private int selectedEquipment;
@@ -40,7 +40,7 @@ public class WorkoutsPanel extends JTabbedPane {
     JTextArea taDescription;
     JTextArea taNotes;
         
-    WorkoutPanel(Workouts.Muscle muscle, ArrayList<Workouts.Muscle> muscles, Workouts workouts)
+    WorkoutPanel(Config.Muscle muscle, ArrayList<Config.Muscle> muscles, Workouts workouts)
     {
       this.workouts = workouts.getWorkoutsByMuscle(muscle, false);
       this.muscle = muscle;
@@ -154,11 +154,11 @@ public class WorkoutsPanel extends JTabbedPane {
     }
   }
 
-  WorkoutsPanel(ArrayList<Workouts.Muscle> muscles, Workouts workouts)
+  WorkoutsPanel(ArrayList<Config.Muscle> muscles, Workouts workouts)
   {
     this.workouts = workouts;
     
-    for(Workouts.Muscle m : muscles) {
+    for(Config.Muscle m : muscles) {
       WorkoutPanel wp = new WorkoutPanel(m, muscles, workouts);
       this.add(wp, m.toString());
     }

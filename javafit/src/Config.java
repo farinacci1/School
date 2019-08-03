@@ -6,6 +6,7 @@ public class Config {
   public final static String WORKOUTFILE = "data/workouts.csv";
   public final static String WORKOUTFORMATFILE = "data/workoutformats.csv";
   public enum MuscleGroup {UPPERBODY, LOWERBODY, WHOLEBODY}
-
+  public enum Muscle {ABS, BACK, BICEPS, CHEST, FOREARM, GLUTES, LOWERLEG, SHOULDER, TRICEPS, UPPERLEG, NONE} // Why didn't I have to declare this static?
+  public enum Equipment {BARBELL, BODYWEIGHT, DUMBBELL, CABLE, HAMMERSTRENGTH}
   
 }

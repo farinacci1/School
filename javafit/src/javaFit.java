@@ -16,16 +16,13 @@ public class javaFit {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-	  // Load data into app
-    Workouts workouts= FileAccess.loadWorkouts();
-    EnumMap<Config.MuscleGroup, ArrayList<Config.Muscle>> muscleGroups = FileAccess.loadFormats();
-	  
-	  // Create Screen Handler
-	  MainWindow mainScreen = new MainWindow(workouts, muscleGroups);
-	  
-	  
 
+		// Load data into app
+		Workouts workouts = FileAccess.loadWorkouts();
+		EnumMap<Config.MuscleGroup, ArrayList<Config.Muscle>> muscleGroups = FileAccess.loadFormats();
+
+		// Create Screen Handler
+		MainWindow mainScreen = new MainWindow(workouts, muscleGroups);
 
 	}
 
