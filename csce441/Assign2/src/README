@@ -1,0 +1,27 @@
+Jorge Farinacci
+Assignment 2 - Hierarchical Transforms
+
+classes
+______
+ActionHandler.Hierarchical
+--handles all relevant actions for robot
+Window.h
+--creates window and sets callbacks to actionhandler static callback methods
+Loader.h
+-- load 3dmodel into pos, nor buffers
+main.h
+--bulk of code for processing and rendering models onto screen
+
+--provided files (as-is unmodified)
+MatrixStack.h
+MatrixStack.cpp
+tiny_obj_loader.h
+GLSL.cpp
+GLSL.h
+
+--provided directiories (as-is unmodified)
+resources
+--contains
+cube.obj
+frag.glsl
+vert.glsl
