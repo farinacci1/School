@@ -1,0 +1,133 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title><?php echo $_SESSION['tableFoundIn'] . " portal"  ?></title>
+		<!--Boostrap & jquery support-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!--custom css for file-->
+		<link rel="stylesheet" type="text/css" href="AccountHomeStyle.css">	
+		<script src="AccountHome.js"></script>
+	</head>
+	<body>
+		<div class ="content_header">
+			<div class="content_header_box">
+				<div id="Welcome_msg">
+					<?php echo $_SESSION['tableFoundIn'] . ": " . $_SESSION['name']  ?>
+				</div>
+				<div id ="logoutButtonBox">
+					<form action="Logout.php" method="get">
+						<Button type="submit" id="logoutButton">  <span class="glyphicon glyphicon-log-out"></span> Log out </button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class ="content_body">
+			<div class="container-fluid">
+				<div class="row">
+					<div id ="verticalNavBar">
+						<?php 
+						
+						if($_SESSION['tableFoundIn'] == "Admin"){
+							echo "<form action='eventHandler.php' method='POST'>";
+							echo "<div id='navOptions'>";
+							echo "	<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='aDoc')?" active":"") ."' id='aDoc' name ='aDoc'>View Doctors</button>";
+							echo "	<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='aPat')?" active":"") ."' id='aPat' name ='aPat'>View Patients</button>";
+							echo "	<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='aReq')?" active":"") ."' id='aReq' name ='aReq'>View Tools</button>";
+							echo "	<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='aAoc')?" active":"") ."' id='aAoc' name ='aAoc'>Settings</button>";
+							echo "</div>";
+							echo "</form>";
+						}
+						elseif($_SESSION['tableFoundIn'] == "Doctor"){
+							echo "<form action='eventHandler.php' method='POST'>";
+							echo "	<div id='navOptions'>";
+							echo "		<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='dDoc')?" active":"") ."' id='dDoc' name ='dDoc'>View Shedule</button>";
+							echo "		<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='dPat')?" active":"") ."' id='dPat' name ='dPat'>View Patients</button>";
+							echo "		<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='dAoc')?" active":"") ."' id='dAoc' name ='dAoc'>Settings</button>";
+							echo "	</div>";			
+							echo "</form>";
+						}
+						elseif($_SESSION['tableFoundIn'] == "Patient"){
+							echo "<form action='eventHandler.php' method='POST'>";
+							echo "	<div id='navOptions'>";
+							echo "		<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='pApp')?" active":"") ."' id='pApp' name ='pApp'>View Appointments</button>";
+							echo "		<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='pMR')?" active":"") ."' id='pMR' name ='pMR'>View MedicalRecord</button>";
+							echo "		<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='pSHD')?" active":"") ."' id='pSHD' name ='pSHD'>Search Hospital Directory</button>";
+							echo "		<button type='submit' class='navBarOption".(($_SESSION['selectednavBarOption']=='pAoc')?" active":"") ."' id='pAoc' name ='pAoc'>Settings</button>";
+							echo "	</div>"; 
+							echo "</form>";
+						}
+						?>
+					</div>
+					<div class="displayWindow">
+						<?php 
+							$servername = "localhost";
+							$username = "root";
+							$password = "";
+							$db = "Hospital";
+							$conn = new mysqli($servername, $username, $password,$db);
+							// Check connection
+							if ($conn->connect_error) {
+								die("Connection failed: " . $conn->connect_error);
+							} 						
+							if($_SESSION['selectednavBarOption'] =='aDoc'){
+								echo "<table class='displayDatabaseEntries'>";
+								echo "<tr class ='titleRow'><th colspan ='4'>Doctors Table</th></tr>";
+								echo "<tr class='ColumnHeaders'><th> Doctor Name </th> <th>Doctor Id</th><th>Ratings</th><th>Last login</th></tr>";
+								
+								$stmt = "SELECT Dname,DID,numRatings,sumRatings,LastLogIn FROM Doctors";
+								$stmt = $conn->prepare($stmt);
+								if($stmt->execute()){
+									$stmt->bind_result($tempDoc, $tempDocId,$tempNumRatings,$tempSumRatings,$tempLogtime);
+										while ( $stmt->fetch()) {											
+											$tempNumRatings = (int)$tempNumRatings;
+											$tempSumRatings = (int)$tempSumRatings;
+											if($tempNumRatings > 0)
+												$avgRating = $tempSumRatings / $tempNumRatings;			
+											else $avgRating = NULL;
+											echo "<tr><td>" . $tempDoc . "</td><td>" . $tempDocId . "</td><td>". $avgRating. "</td><td>". $tempLogtime . "</td></tr>";
+										}										
+									
+								}
+								$stmt->close();								
+								echo "</table>";
+							}
+							elseif($_SESSION['selectednavBarOption'] =='aPat'){
+								echo "<table class='displayDatabaseEntries'>";
+								echo "<tr class ='titleRow'><th colspan ='4'>Patients Table</th></tr>";
+								echo "<tr class='ColumnHeaders'><th> Patient Name </th> <th>Patient id</th><th>Date of Birth</th><th>Last login</th></tr>";
+								
+								$stmt = "SELECT PName,PID,DOB,LastLogIn FROM Patients";
+								$stmt = $conn->prepare($stmt);
+								if($stmt->execute()){
+									$stmt->bind_result($tempPat, $tempPatId,$tempDOB,$tempLogtime);
+										while ( $stmt->fetch()) {											
+											echo "<tr><td>" . $tempPat . "</td><td>" . $tempPatId . "</td><td>". $tempDOB. "</td><td>". $tempLogtime . "</td></tr>";
+										}										
+									
+								}								
+								echo "</table>";
+							}
+							elseif($_SESSION['selectednavBarOption'] =='aReq'){
+								echo "<table class='displayDatabaseEntries'>";
+								echo "<tr class ='titleRow'><th colspan ='4'>Patients Table</th></tr>";
+								echo "<tr class='ColumnHeaders'><th> Tool name</th> <th>Tool id</th><th>Tool quantity</th><th># in use</th></tr>";
+								
+								$stmt = "SELECT ToolName,ToolId,Quantity FROM Patients";
+							}
+						?>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content_footer"/>
+		
+	</body>
+</html>
