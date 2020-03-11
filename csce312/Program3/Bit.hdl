@@ -1,0 +1,15 @@
+//Jorge Farinacci
+CHIP Bit{
+  IN load,in;
+  OUT out;
+
+  PARTS:
+    Mux(a=prev,b=in,sel=load,out=d);
+    DFF(in=d,out=out,out=prev);
+    /**
+    *clk is aparently reserved
+    * Mux(a=clk,b=in,sel=load,out=d);
+    * DFF(in=d,out=out,out=clk);
+    */
+
+}

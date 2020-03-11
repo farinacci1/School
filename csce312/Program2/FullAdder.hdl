@@ -1,0 +1,37 @@
+//Jorge Farinacci
+CHIP FullAdder {
+    IN a, b, c;  // 1-bit inputs
+    OUT sum,     // Right bit of a + b + c
+        carry;   // Left bit of a + b + c
+
+    PARTS:
+    Xor(a=a,b=b,out=q);
+    Xor(a=q,b=c,out=sum);
+
+    Not(in=a,out=na);
+    Not(in=b,out=nb);
+    //section replaced start
+    And(a=na, b=b,out=nab);
+    And(a=a, b=nb,out=anb);
+    Or(a=nab, b=anb,out= x1);
+    And(a=c,b=x1,out=x2);
+    And(a=a,b=b,out=ab);
+    Or(a=ab,b=x2,out=carry);
+    //section replaced end
+
+    /**
+    *region replace from orignal code
+    * previously modeled after full adder example in v7
+    * at time 33:16- doesn't work not sure why
+
+    *And(a=b, b=c,out=bc);
+    *And(a=na, b=c,out=nac);
+    *And(a=a, b=nb,out=anb);
+
+    *Or(a=bc,b=nac,out=q1);
+    *Or(a=q1,b=anb,out=carry);
+
+
+    */
+
+}

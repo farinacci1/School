@@ -1,0 +1,10 @@
+//Jorge Farinacci
+CHIP HalfAdder{
+//s = a XOR b
+//co = ab
+IN a,b;
+OUT carry, sum;
+PARTS:
+  And(a=a,b=b,out=carry);
+  Xor(a=a,b=b,out=sum);
+}

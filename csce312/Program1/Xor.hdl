@@ -1,0 +1,12 @@
+//Jorge Farinacci
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not(in=a,out=na);
+    Not(in=b,out=nb);
+    Or(a=a, b=b, out=aorb);
+    Or(a=na, b=nb, out=naornb);
+    And(a=aorb,b=naornb,out=out);
+}

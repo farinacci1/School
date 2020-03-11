@@ -1,0 +1,12 @@
+//Jorge Farinacci
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    Not(in=sel, out=ns);
+    And(a=a, b=ns, out=ans);
+    And(a=b, b=sel, out=bs);
+    Or(a=ans,b=bs,out=out);
+}

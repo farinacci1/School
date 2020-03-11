@@ -1,0 +1,32 @@
+//Jorge Farinacci
+CHIP ALU-nostat{
+
+  IN x[16],y[16],zx,nx,zy,ny,f,no;
+  OUT out[16];
+
+  PARTS:
+    // zx == 1?
+    Mux16(a=x,b=false,sel=zx,out=x1);
+
+    //nx == 1?
+    Not16(in=x1,out=nx1);
+    Mux16(a=x1,b=nx1,sel=nx,out=x2);
+
+    //zy == 1?
+    Mux16(a=y,b=false,sel=zy,out=y1);
+
+    //ny == 1?
+    Not16(in=y1,out=ny1);
+    Mux16(a=y1,b=ny1,sel=ny,out=y2);
+
+    //f == 1?
+    Add16(a=x2,b=y2,out=ixy);
+    And16(a=x2,b=y2,out=axy);
+    Mux16(a=axy,b=ixy,sel=f,out=c2);
+
+    //no == 1?
+    Not16(in=c2,out=nc2);
+    Mux16(a=c2,b=nc2,sel=no,out=out);
+
+
+}

@@ -1,0 +1,9 @@
+//Jorge Farinacci
+CHIP Inc16{
+  IN in[16];
+  OUT out[16];
+  //use 16 bit adder and add number to binary expression of 1
+  // which is 0000 0000 0000 0001 or b[0] = 1
+  PARTS:
+    Add16(a=in,b[0]=true,out=out);
+}

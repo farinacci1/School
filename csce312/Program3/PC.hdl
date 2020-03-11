@@ -1,0 +1,12 @@
+//Jorge Farinacci
+CHIP PC{
+  IN in[16],load,inc,reset;
+  OUT out[16];
+
+  PARTS:
+    Inc16(in=oo,out=inc1);
+    Mux16(a=oo,b=inc1,sel=inc,out=inc2);
+    Mux16(a=inc2,b=in,sel=load,out=l);
+    Mux16(a=l,b=false,sel=reset,out=r);
+    Register(in=r,load=true,out=out,out=oo);
+}
