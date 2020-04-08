@@ -34,21 +34,35 @@ def SeamCarve(input, widthFac, heightFac, mask):
     gray_img = cv2.cvtColor(img.astype('float32'), cv2.COLOR_BGR2GRAY)
     curr_height,curr_width = gray_img.shape
     new_height = int(curr_height * heightFac)
-    new_width = int(curr_width*widthFac)
-    
-    
-    
+    new_width = int(curr_width*widthFac)    
+    alpha = 3
+    #apply masks
+    r,c = np.where(mask == 1)
+    for i in range(r.size):
+        img[r[i],c[i]] *= alpha
+    #process img
     dims = img.shape
     dc = abs(new_width - curr_width)
     dr = abs(new_height - curr_height)
-
+    
     indX = -1
     indY = -1
-    for i in range(dc):
-        M = computeMinimalEnergy(computeEnergyMatrix(gray_img))
-        img = removeMinSeam(img,M)
-        gray_img = cv2.cvtColor(img.astype('float32'), cv2.COLOR_BGR2GRAY)
+    if(dc > 0):
+        for i in range(dc):
+            M = computeMinimalEnergy(computeEnergyMatrix(gray_img))
+            img = removeMinSeam(img,M)
+            gray_img = cv2.cvtColor(img.astype('float32'), cv2.COLOR_BGR2GRAY)
 
+    if(dr > 0):
+        img = np.rot90(img, k=1, axes=(0, 1))
+        gray_img = cv2.cvtColor(img.astype('float32'), cv2.COLOR_BGR2GRAY)
+        for i in range(dr):
+            M = computeMinimalEnergy(computeEnergyMatrix(gray_img))
+            img = removeMinSeam(img,M)
+            gray_img = cv2.cvtColor(img.astype('float32'), cv2.COLOR_BGR2GRAY)
+        img = np.rot90(img, k=3, axes=(0, 1))
+    
+    img[img > 1] /= alpha
     return img, [img.shape[0],img.shape[1]]        
         
 
@@ -69,7 +83,6 @@ def computeMinimalEnergy(E):
     return mat[:,1:-1]
 def removeMinSeam(img,M):
     dimY,dimX = M.shape
-    print(M.shape,img.shape)
     indY = -1
     output = np.zeros((dimY,dimX-1,3))
     #get minimum on last row
@@ -109,7 +122,7 @@ outputDir = '../Results/'
 
 widthFac = 0.5; # To reduce the width, set this parameter to a value less than 1
 heightFac = 1;  # To reduce the height, set this parameter to a value less than 1
-N = 4 # number of images
+N = 1 # number of images
 
 for index in range(1, N + 1):
 
